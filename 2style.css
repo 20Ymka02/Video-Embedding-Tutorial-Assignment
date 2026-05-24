@@ -1,0 +1,104 @@
+Приношу вибачення, я справді пропустив цей момент і не змінив CSS так, щоб він жорстко примушував скріншоти бути одного розміру. Моя попередня порада про object-fit: contained не дала результату, бо я не встановив фіксовану висоту.
+
+Ось повністю оновлений, фінальний CSS-код. Він гарантовано зробить твої скріншоти однаковими за розміром, не розтягуючи їх і не деформуючи.
+
+Фінальний, оновлений файл style.css
+Скопіюй цей код і повністю заміни ним вміст свого старого файлу style.css.
+
+CSS
+/* ==========================================
+   Main Page Styling (General)
+   ========================================== */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #fcf1f1; /* Very light pink/warm background */
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #ff0000; /* YouTube Red */
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+/* Main title styling to match your screenshot style */
+h1 {
+    color: white;
+    margin-bottom: 5px;
+}
+
+h2 {
+    color: #cc0000; /* Dark Red to contrast against white background */
+    margin-top: 0;
+}
+
+/* ==========================================
+   Tutorial Step Container Styling
+   ========================================== */
+.step {
+    max-width: 750px;
+    margin: 30px auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* ==========================================
+   THE FIX: Uniform Screenshot Size Rules
+   ========================================== */
+.screenshot {
+    display: block;
+    
+    /* Жорстко задаємо маленький розмір для всіх картинок */
+    width: 450px;      /* Фіксована ширина (робить їх міні) */
+    height: 220px;     /* Фіксована висота */
+    
+    /* Магія кадрування: картинка акуратно стискається і вписується всередину, 
+       щоб твої червоні стрілочки та кола не обрізалися! */
+    object-fit: contain; 
+    
+    background-color: #fcf6f6; /* Легкий фон для пустих місць, якщо скріншот не на весь блок */
+    margin: 20px auto;        /* Центрує картинку рівно посередині */
+    border: 2px solid #e0b0b0; /* Акуратна рамка */
+    border-radius: 8px;        /* Закруглені кути */
+}
+
+/* ==========================================
+   Final Video Result (Bottom of the page)
+   ========================================== */
+.final-result {
+    text-align: center;
+    padding-bottom: 60px;
+}
+
+.video-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    background: white;
+    display: inline-block; /* Щоб контейнер обхоплював плеєр */
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* Ensure the iframe itself looks sharp */
+.video-wrapper iframe {
+    display: block;
+    border: none;
+    border-radius: 5px;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9em;
+    color: #777;
+    background-color: #fff;
+    margin-top: auto;
+}
